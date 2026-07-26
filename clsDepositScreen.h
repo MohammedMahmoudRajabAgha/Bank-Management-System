@@ -36,7 +36,7 @@ private:
 	}
 
 public:
-
+	
 	static void ShowDepositScreen()
 	{
 		_DrawScreenHeader("\t     Deposit Screen");
@@ -59,13 +59,20 @@ public:
 		cout << "\nPlease enter deposit amount ? ";
 		Amount = clsInputValidate::ReadDblNumber();
 
+		while (!clsInputValidate::IsPositiveNumber(Amount))
+		{
+			cout << "\nInvalid Amount, Please enter another Amount : ";
+			Amount = clsInputValidate::ReadFloatNumber();
+
+		}
+
 		cout << "\nAre you sure you want to perform this transactions [y/n] ? ";
 		char Answer = 'n';
 		cin >> Answer;
 
 		if (Answer == 'Y' || Answer == 'y')
 		{
-
+			
 			Client1.Deposit(Amount);
 			
 			cout << "\n\nAmount Deposit Successfully :-)\n";
