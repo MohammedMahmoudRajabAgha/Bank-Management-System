@@ -68,5 +68,13 @@
     <ClInclude Include="clsTransactionsScreen.h">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
+    <ClInclude Include="clsDepositScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Clients.txt">
+      <Filter>Header Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

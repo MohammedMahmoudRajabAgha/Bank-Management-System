@@ -131,6 +131,7 @@
     <ClInclude Include="clsClientListScreen.h" />
     <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDeleteClientScreen.h" />
+    <ClInclude Include="clsDepositScreen.h" />
     <ClInclude Include="clsFindClientScreen.h" />
     <ClInclude Include="clsInputValidate.h" />
     <ClInclude Include="clsMainScreen.h" />
@@ -141,6 +142,9 @@
     <ClInclude Include="clsTransactionsScreen.h" />
     <ClInclude Include="clsUpdateClientScreen.h" />
     <ClInclude Include="clsUtil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Clients.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
