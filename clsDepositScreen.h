@@ -55,16 +55,14 @@ public:
 
 		_PrintClient(Client1);
 		
+		//You Can Use...
+		// 1) INT_MIN ,INT_MAX
+		// 2) FLT_MIN ,FLT_MAX
+		// 3) DBL_MIN ,DBL_MAX
+
 		double Amount;
 		cout << "\nPlease enter deposit amount ? ";
-		Amount = clsInputValidate::ReadDblNumber();
-
-		while (!clsInputValidate::IsPositiveNumber(Amount))
-		{
-			cout << "\nInvalid Amount, Please enter another Amount : ";
-			Amount = clsInputValidate::ReadFloatNumber();
-
-		}
+		Amount = clsInputValidate::ReadDblNumberBetween(1,DBL_MAX);
 
 		cout << "\nAre you sure you want to perform this transactions [y/n] ? ";
 		char Answer = 'n';
