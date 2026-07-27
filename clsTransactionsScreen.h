@@ -101,14 +101,14 @@ public:
         system("cls");
         _DrawScreenHeader("\t  Transactions Screen");
 
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
         cout << setw(37) << left << "" << "\t\t  Transactions Menue\n";
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
         cout << setw(37) << left << "" << "\t[1] Deposit.\n";
         cout << setw(37) << left << "" << "\t[2] Withdraw.\n";
         cout << setw(37) << left << "" << "\t[3] Total Balances.\n";
         cout << setw(37) << left << "" << "\t[4] Main Menue.\n";
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
 
         _PerformTransactionsMenueOption((enTransactionsMenueOptions)ReadTransactionsMenueOption());
     }

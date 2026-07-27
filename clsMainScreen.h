@@ -10,6 +10,7 @@
 #include"clsUpdateClientScreen.h"
 #include"clsFindClientScreen.h"
 #include"clsTransactionsScreen.h"
+#include"clsManageUsersScreen.h"
 using namespace std;
 
 class clsMainScreen :protected clsScreen
@@ -87,9 +88,9 @@ private:
 
     static void _ShowManageUsersMenue()
     {
-        //Stub...
-        cout << "\nUsers Menue Will be here...\n";
-
+        ////Stub...
+        //cout << "\nUsers Menue Will be here...\n";
+        clsManageUsersScreen::ShowManageUsersMenue();
     }
 
     static void _ShowEndScreen()
@@ -143,6 +144,7 @@ private:
         case enMainMenueOptions::eManageUsers:
             system("cls");
             _ShowManageUsersMenue();
+            _GoBackToMainMenue();
             break;
 
         case enMainMenueOptions::eExit:
@@ -166,9 +168,9 @@ public:
         system("cls");
         _DrawScreenHeader("\t\tMain Screen");
 
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
         cout << setw(37) << left << "" << "\t\t\tMain Menue\n";
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
         cout << setw(37) << left << "" << "\t[1] Show Client List.\n";
         cout << setw(37) << left << "" << "\t[2] Add New Client.\n";
         cout << setw(37) << left << "" << "\t[3] Delete Client.\n";
@@ -177,7 +179,7 @@ public:
         cout << setw(37) << left << "" << "\t[6] Transactions.\n";
         cout << setw(37) << left << "" << "\t[7] Manage Users.\n";
         cout << setw(37) << left << "" << "\t[8] Logout.\n";
-        cout << setw(37) << left << "" << "===========================================\n";
+        cout << setw(37) << left << "" << "============================================\n";
 
         _PerfromMainMenueOption((enMainMenueOptions)_ReadMainMenueOption());
     }
