@@ -377,10 +377,16 @@ public:
         return TotalBalances;
     }
    
-    void Deposit(double Amount)
+    bool Deposit(double Amount)
     {
-        _AccountBalance += Amount;
-        Save();
+        if (Amount > 0)
+        {
+            _AccountBalance += Amount;
+            Save();
+            return true;
+        }
+
+        return false;
     }
 
     bool Withdraw(double Amount)

@@ -66,11 +66,16 @@ public:
 		if (Answer == 'Y' || Answer == 'y')
 		{
 
-			Client1.Deposit(Amount);
-			
-			cout << "\n\nAmount Deposit Successfully :-)\n";
-			cout << "\nNew Balance Is : " << Client1.AccountBalance;
-			
+			if (Client1.Deposit(Amount))
+			{
+				cout << "\n\nAmount Deposit Successfully :-)\n";
+				cout << "\nNew Balance Is : " << Client1.AccountBalance;
+			}
+
+			else
+			{
+				cout << "\nOperation is not possible :-(\n";
+			}
 		}
 		else
 		{
