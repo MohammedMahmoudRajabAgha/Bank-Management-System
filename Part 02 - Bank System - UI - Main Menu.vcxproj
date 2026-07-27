@@ -142,6 +142,7 @@
     <ClInclude Include="clsTransactionsScreen.h" />
     <ClInclude Include="clsUpdateClientScreen.h" />
     <ClInclude Include="clsUtil.h" />
+    <ClInclude Include="clsWithdrawScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Clients.txt" />

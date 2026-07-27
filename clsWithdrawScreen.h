@@ -5,7 +5,7 @@
 #include"clsBankClient.h"
 using namespace std;
 
-class clsDepositScreen :protected clsScreen
+class clsWithdrawScreen :protected clsScreen
 {
 private:
 
@@ -37,13 +37,13 @@ private:
 
 public:
 
-	static void ShowDepositScreen()
+	static void ShowWithdrawScreen()
 	{
-		_DrawScreenHeader("\t     Deposit Screen");
+		_DrawScreenHeader("\t     Withdraw Screen");
 
 		string AccountNumber = _ReadAccountNumber();
 
-		
+
 		while (!clsBankClient::IsClientExist(AccountNumber))
 		{
 			cout << "\nClient With [" << AccountNumber << "] does not exist.";
@@ -54,10 +54,19 @@ public:
 		clsBankClient Client1 = clsBankClient::Find(AccountNumber);
 
 		_PrintClient(Client1);
-		
+
 		double Amount;
-		cout << "\nPlease enter deposit amount ? ";
+		cout << "\nPlease enter Withdraw amount ? ";
 		Amount = clsInputValidate::ReadDblNumber();
+
+		//Validate That the amount does not esceeds the balance
+		while (Amount > Client1.AccountBalance)
+		{
+			cout << "\nAmount Exceeds the balance, you can withdraw up to : " << Client1.AccountBalance;
+
+			cout << "\nPlease enter Withdraw amount ? ";
+			cin >> Amount;
+		}
 
 		cout << "\nAre you sure you want to perform this transactions [y/n] ? ";
 		char Answer = 'n';
@@ -66,11 +75,18 @@ public:
 		if (Answer == 'Y' || Answer == 'y')
 		{
 
-			Client1.Deposit(Amount);
-			
-			cout << "\n\nAmount Deposit Successfully :-)\n";
-			cout << "\nNew Balance Is : " << Client1.AccountBalance;
-			
+			if (Client1.Withdraw(Amount))
+			{
+				cout << "\n\nAmount Withdraw Successfully :-)\n";
+				cout << "\nNew Balance Is : " << Client1.AccountBalance;
+			}
+			else
+			{
+				cout << "\nCannot Withdraw, Insuffecient Balance!\n";
+				cout << "\nAmount to withdraw is : " << Amount;
+				cout << "\n Your Balance is : " << Client1.AccountBalance;
+			}
+
 		}
 		else
 		{

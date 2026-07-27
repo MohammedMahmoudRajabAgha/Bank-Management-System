@@ -52,12 +52,6 @@ public:
 		return false;
 	}
 
-
-	static bool IsPositiveNumber(short Number)
-	{
-		return (Number >= 0);
-	}
-
 	static short ReadShortNumber(string ErrorMessage = "Invalid Number, Enter again\n")
 	{
 		short Number;
