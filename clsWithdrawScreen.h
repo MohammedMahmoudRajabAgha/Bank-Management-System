@@ -57,7 +57,7 @@ public:
 
 		double Amount;
 		cout << "\nPlease enter Withdraw amount ? ";
-		Amount = clsInputValidate::ReadDblNumber();
+		Amount = clsInputValidate::ReadDblNumberBetween(0, DBL_MAX);
 
 		//Validate That the amount does not esceeds the balance
 		while (Amount > Client1.AccountBalance)
