@@ -151,6 +151,12 @@ private:
 
 public:
 
+    enum enPermissions
+    {
+        eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClient = 8,
+        pFindClient = 16, pTransactions = 32, pManageUsers = 64
+    };
+
     clsUser(enMode Mode, string FirstName, string LastName,
         string Email, string Phone, string UserName, string Password,
         int Permissions) :
@@ -341,25 +347,6 @@ public:
     {
         return _LoadUsersDataFromFile();
     }
-
-#if 0
-    static void _PrintUser(clsUser User)
-    {
-        cout << "\nUser Card:";
-        cout << "\n___________________";
-        cout << "\nFirstName   : " << User.FirstName;
-        cout << "\nLastName    : " << User.LastName;
-        cout << "\nFull Name   : " << User.FullName();
-        cout << "\nEmail       : " << User.Email;
-        cout << "\nPhone       : " << User.Phone;
-        cout << "\nUser Name   : " << User.UserName();
-        cout << "\nPassword    : " << User.Password;
-        cout << "\nPermissions : " << User.Permissions;
-        cout << "\n___________________\n";
-
-    }
-
-#endif
 
 };
 

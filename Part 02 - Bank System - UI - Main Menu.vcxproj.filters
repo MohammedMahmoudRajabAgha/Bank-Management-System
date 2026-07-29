@@ -92,11 +92,14 @@
     <ClInclude Include="clsManageUsersScreen.h">
       <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
     </ClInclude>
-    <ClInclude Include="clsUser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="clsListUsersScreen.h">
       <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="clsAddNewUserScreen.h">
+      <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUser.h">
+      <Filter>Header Files\Logical Tier</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
