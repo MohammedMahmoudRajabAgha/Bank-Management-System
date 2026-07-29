@@ -6,7 +6,7 @@
 #include"clsAddNewUserScreen.h"
 #include"clsDeleteUserScreen.h"
 #include"clsUpdateUserScreen.h"
-
+#include"clsFindUser.h"
 class clsManageUsersScreen:protected clsScreen
 {
 	enum enManageUsersMenueOptios { eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
@@ -48,7 +48,8 @@ class clsManageUsersScreen:protected clsScreen
 
 	void static _ShowFindUserScreen()
 	{
-		cout << "\nFind User Screen will be here.\n";
+		/*cout << "\nFind User Screen will be here.\n";*/
+		clsFindUserScreen::ShowFindUserScreen();
 	}
 
 	static void _GoBackToManageUsersMenue()
