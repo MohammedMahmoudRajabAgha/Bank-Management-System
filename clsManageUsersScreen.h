@@ -2,6 +2,8 @@
 #include<iostream>
 #include"clsScreen.h"
 
+#include"clsListUsersScreen.h"
+
 class clsManageUsersScreen:protected clsScreen
 {
 	enum enManageUsersMenueOptios { eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
@@ -19,7 +21,8 @@ class clsManageUsersScreen:protected clsScreen
 
 	void static _ShowListUsersScrenn()
 	{
-		cout << "\nList Users Screen will be here.\n";
+		/*cout << "\nList Users Screen will be here.\n";*/
+		clsListUsersScreen::ShowUsersList();
 	}
 
 	void static _ShowAddNewUserScreen()
