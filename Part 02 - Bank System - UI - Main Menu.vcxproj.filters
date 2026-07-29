@@ -101,5 +101,8 @@
     <ClInclude Include="clsUser.h">
       <Filter>Header Files\Logical Tier</Filter>
     </ClInclude>
+    <ClInclude Include="clsDeleteUserScreen.h">
+      <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

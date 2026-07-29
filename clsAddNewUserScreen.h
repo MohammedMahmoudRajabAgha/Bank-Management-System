@@ -66,8 +66,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
-
-
+            //Permissions |= clsUser::enPermissions::pListClients;
             Permissions += clsUser::enPermissions::pListClients;
         }
 
@@ -75,6 +74,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pAddNewClient;
             Permissions += clsUser::enPermissions::pAddNewClient;
         }
 
@@ -82,6 +82,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pDeleteClient;
             Permissions += clsUser::enPermissions::pDeleteClient;
         }
 
@@ -89,6 +90,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pUpdateClient;
             Permissions += clsUser::enPermissions::pUpdateClient;
         }
 
@@ -96,6 +98,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pFindClient;
             Permissions += clsUser::enPermissions::pFindClient;
         }
 
@@ -103,6 +106,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pTransactions;
             Permissions += clsUser::enPermissions::pTransactions;
         }
 
@@ -110,6 +114,7 @@ private:
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
         {
+            //Permissions |= clsUser::enPermissions::pManageUsers;
             Permissions += clsUser::enPermissions::pManageUsers;
         }
 
