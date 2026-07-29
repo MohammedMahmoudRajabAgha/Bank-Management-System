@@ -6,7 +6,8 @@
 #include"clsAddNewUserScreen.h"
 #include"clsDeleteUserScreen.h"
 #include"clsUpdateUserScreen.h"
-#include"clsFindUser.h"
+#include"clsFindUserScreen.h"
+
 class clsManageUsersScreen:protected clsScreen
 {
 	enum enManageUsersMenueOptios { eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
