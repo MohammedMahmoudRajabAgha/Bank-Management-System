@@ -107,8 +107,14 @@
     <ClInclude Include="clsUpdateUserScreen.h">
       <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
     </ClInclude>
-    <ClInclude Include="clsFindUser.h">
+    <ClInclude Include="clsFindUserScreen.h">
       <Filter>Header Files\Screens\Main Menu\Manage Users Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="clsLoginScreen.h">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
