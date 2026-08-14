@@ -290,6 +290,7 @@ public:
 
             }
 
+            break;
         }
 
         case enMode::UpdateMode:

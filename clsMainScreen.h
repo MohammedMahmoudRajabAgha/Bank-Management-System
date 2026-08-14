@@ -99,7 +99,6 @@ private:
     //{
     //    //Stub...
     //    cout << "\nEnd Screen Will be here...\n";
-
     //}
 
     static void _Logout()
