@@ -96,9 +96,13 @@ public:
 
     static void ShowTransactionsMenue()
     {
-
-
         system("cls");
+
+        if (!clsScreen::CeckAccessRights(clsUser::enPermissions::pTransactions))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         _DrawScreenHeader("\t  Transactions Screen");
 
         cout << setw(37) << left << "" << "============================================\n";

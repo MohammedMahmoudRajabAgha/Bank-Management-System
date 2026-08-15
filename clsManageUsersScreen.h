@@ -118,6 +118,12 @@ public:
 	static void ShowManageUsersMenue()
 	{
 		system("cls");
+
+		if (!clsScreen::CeckAccessRights(clsUser::enPermissions::pManageUsers))
+		{
+			return;// this will exit the function and it will not continue
+		}
+
 		_DrawScreenHeader("\t   Manage Users Screnn");
 
 		cout << setw(37) << left << "" << "============================================\n";
