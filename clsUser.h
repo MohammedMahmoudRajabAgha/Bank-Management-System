@@ -19,6 +19,21 @@ private:
     int _Permissions;
 
     bool _MarkedForDelete = false;
+    struct stLoginRegisterRecord;
+
+    static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(string Line, string Seperater = "#//#")
+    {
+        stLoginRegisterRecord LoginRegisterRecord;
+
+        vector<string> vLoginRegisterDataLine = clsString::Split(Line, Seperater);
+
+        LoginRegisterRecord.DateTime = vLoginRegisterDataLine[0];
+        LoginRegisterRecord.UserName = vLoginRegisterDataLine[1];
+        LoginRegisterRecord.Password = vLoginRegisterDataLine[2];
+        LoginRegisterRecord.Permissions = stoi(vLoginRegisterDataLine[3]);
+
+        return LoginRegisterRecord;
+    }
 
     string _PrepareLogInRecord(string Separator = "#//#")
     {
@@ -163,6 +178,14 @@ private:
     }
 
 public:
+
+    struct stLoginRegisterRecord
+    {
+        string DateTime;
+        string UserName;
+        string Password;
+        int Permissions;
+    };
 
     enum enPermissions
     {
@@ -388,5 +411,32 @@ public:
             MyFile.close();
         }
     }
+
+    static vector<stLoginRegisterRecord> GetLoginRegisterList()
+    {
+        vector<stLoginRegisterRecord> vLoginRegisterRecord;
+
+        fstream MyFile;
+
+        MyFile.open("LoginRegister.txt", ios::in);//read Mode...
+    
+        if (MyFile.is_open())
+        {
+            string Line;
+
+            stLoginRegisterRecord LoginRegisterRecord;
+
+
+            while (getline(MyFile, Line))
+            {
+                LoginRegisterRecord = _ConvertLoginRegisterLineToRecord(Line);
+
+                vLoginRegisterRecord.push_back(LoginRegisterRecord);
+            }
+        }
+
+        return vLoginRegisterRecord;
+    }
+
 };
 
