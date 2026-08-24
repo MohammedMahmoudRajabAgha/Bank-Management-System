@@ -12,6 +12,7 @@
 #include"clsTransactionsScreen.h"
 #include"clsManageUsersScreen.h"
 #include"Global.h"
+#include"clsLoginRegisterScreen.h"
 
 using namespace std;
 
@@ -97,8 +98,9 @@ private:
 
     static void _ShowLoginRegisterScreen()
     {
-        //stub...
-        cout << "\nLogin Register Screen Will be here...\n";
+        ////stub...
+        //cout << "\nLogin Register Screen Will be here...\n";
+        clsLoginRegisterScreen::ShowLoginRegisterScreen();
     }
 
     //static void _ShowEndScreen()

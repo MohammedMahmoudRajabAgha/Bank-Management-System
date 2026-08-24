@@ -412,31 +412,37 @@ public:
         }
     }
 
-    static vector<stLoginRegisterRecord> GetLoginRegisterList()
+    static  vector <stLoginRegisterRecord> GetLoginRegisterList()
     {
-        vector<stLoginRegisterRecord> vLoginRegisterRecord;
+        vector <stLoginRegisterRecord> vLoginRegisterRecord;
 
         fstream MyFile;
+        MyFile.open("LoginRegister.txt", ios::in);//read Mode
 
-        MyFile.open("LoginRegister.txt", ios::in);//read Mode...
-    
         if (MyFile.is_open())
         {
+
             string Line;
-
             stLoginRegisterRecord LoginRegisterRecord;
-
 
             while (getline(MyFile, Line))
             {
+
                 LoginRegisterRecord = _ConvertLoginRegisterLineToRecord(Line);
 
                 vLoginRegisterRecord.push_back(LoginRegisterRecord);
+
             }
+
+            MyFile.close();
+
         }
 
         return vLoginRegisterRecord;
+
     }
+
+
 
 };
 
