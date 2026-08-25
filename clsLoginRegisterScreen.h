@@ -20,6 +20,10 @@ private:
 public:
 	static void ShowLoginRegisterScreen()
 	{
+		if (!clsScreen::CeckAccessRights(clsUser::enPermissions::pShowLogInRegister))
+		{
+			return;
+		}
 
 		vector<clsUser::stLoginRegisterRecord> vLoginRegisterRecord = clsUser::GetLoginRegisterList();
 
