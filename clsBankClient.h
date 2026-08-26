@@ -406,7 +406,7 @@ public:
 
     bool Transfer(double Amount, clsBankClient& DestinationClient)
     {
-        if (Amount > AccountBalance)
+        if (Amount > AccountBalance || (AccountNumber() == DestinationClient.AccountNumber()))
         {
             return false;
         }
