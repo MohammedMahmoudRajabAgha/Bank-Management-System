@@ -39,14 +39,8 @@ private:
 	{
 		double Amount = 0;
 		cout << "\nEnter Transfer Amount ? ";
-		Amount = clsInputValidate::ReadDblNumber();
+		Amount = clsInputValidate::ReadDblNumberBetween(0, SourceClient.AccountBalance, "Number is not a range, Enter Number between [0," + to_string(SourceClient.AccountBalance) + "] ? ");
 
-		while (SourceClient.AccountBalance < Amount)
-		{
-			cout << "\nAmount Exceeds the available Balance, Enter another Amount ? ";
-			Amount = clsInputValidate::ReadDblNumber();
-
-		}
 
 		return Amount;
 
