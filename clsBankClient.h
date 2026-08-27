@@ -19,6 +19,37 @@ private:
     float _AccountBalance;
     bool _MarkedForDelete = false;
 
+    string _PrepareTransferLogRecord(double Amount, clsBankClient DestinationClient, string UserName , string Separator = "#//#")
+    {
+        string TransferLogRecord = "";
+
+        TransferLogRecord += clsDate::GetSystemDateTimeString() + Separator;
+        TransferLogRecord += AccountNumber() + Separator;
+        TransferLogRecord += DestinationClient.AccountNumber() + Separator;
+        TransferLogRecord += to_string(Amount) + Separator;
+        TransferLogRecord += to_string(AccountBalance) + Separator;
+        TransferLogRecord += to_string(DestinationClient.AccountBalance) + Separator;
+        TransferLogRecord += UserName;
+
+        return TransferLogRecord;
+    }
+
+    void _RegisterTransferLogRecord(double Amount, clsBankClient DestinationClient, string UserName)
+    {
+        string stDataLine = _PrepareTransferLogRecord(Amount, DestinationClient, UserName);
+
+        fstream MyFile;
+
+        MyFile.open("TransferLog.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+        }
+    }
+
     static clsBankClient _ConvertLinetoClientObject(string Line, string Seperator = "#//#")
     {
         vector<string> vClientData;
@@ -404,7 +435,7 @@ public:
         }
     }
 
-    bool Transfer(double Amount, clsBankClient& DestinationClient)
+    bool Transfer(double Amount, clsBankClient& DestinationClient,string UserName)
     {
         if (Amount > AccountBalance)
         {
@@ -413,7 +444,10 @@ public:
 
         Withdraw(Amount);
         DestinationClient.Deposit(Amount);
+        _RegisterTransferLogRecord(Amount, DestinationClient, UserName);
 
         return true;
     }
+
+    
 };
