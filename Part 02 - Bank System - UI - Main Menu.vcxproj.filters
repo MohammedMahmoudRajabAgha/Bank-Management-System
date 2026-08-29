@@ -116,10 +116,13 @@
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="clsLoginRegisterScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="clsTransferScreen.h">
+      <Filter>Header Files\Screens\Main Menu\Transactios Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="clsLoginRegisterScreen.h">
+      <Filter>Header Files\Screens\Main Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="clsTransferLogScreen.h">
       <Filter>Header Files\Screens\Main Menu\Transactios Menu</Filter>
     </ClInclude>
   </ItemGroup>
