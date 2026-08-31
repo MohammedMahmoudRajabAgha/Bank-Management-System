@@ -125,5 +125,8 @@
     <ClInclude Include="clsTransferLogScreen.h">
       <Filter>Header Files\Screens\Main Menu\Transactios Menu</Filter>
     </ClInclude>
+    <ClInclude Include="InterfaceCommunication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

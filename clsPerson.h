@@ -1,9 +1,11 @@
 #pragma once
 #include<iostream>
 #include<string>
+#include"InterfaceCommunication.h"
+
 using namespace std;
 
-class clsPerson
+class clsPerson :public InterfaceCommunication
 {
 private:
 	string _FirstName;
@@ -65,5 +67,24 @@ public:
 	{
 		return _FirstName + " " + _LastName;
 	}
+
+	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
+	void SendEmail(string Title, string Body)
+	{
+
+	}
+
+	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
+	void SendFax(string Title, string Body)
+	{
+
+	}
+
+	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
+	void SendSMS(string Title, string Body)
+	{
+
+	}
+
 
 };
