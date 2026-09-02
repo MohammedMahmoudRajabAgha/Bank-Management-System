@@ -34,6 +34,11 @@ private:
         return LogInRecord;
     }
 
+    string _PrepareLogoutRecord(string Separator = "#//#")
+    {
+        return _PrepareLogInRecord(Separator);
+    }
+
     static stLoginRegisterRecord _ConvertLoginRegisterLineToRecord(string Line, string Seperater = "#//#")
     {
         stLoginRegisterRecord LoginRegisterRecord;
@@ -437,5 +442,8 @@ public:
 
         return vLoginRegisterRecord;
     }
+
+   
+
 };
 
