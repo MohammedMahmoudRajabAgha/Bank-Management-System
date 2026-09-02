@@ -104,6 +104,12 @@ private:
         clsLoginRegisterScreen::ShowLoginRegisterScreen();
     }
 
+    static void _ShowLogoutRegisterScreen()
+    {
+        //Stub...
+        cout << "\nLogout Register Screen will be here...\n";
+    }
+
     //static void _ShowEndScreen()
     //{
     //    //Stub...
