@@ -10,8 +10,10 @@
 
 class clsManageUsersScreen:protected clsScreen
 {
-	enum enManageUsersMenueOptios { eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
-		eUpdateUser = 4, eFindUser = 5, eMainMenue };
+	enum enManageUsersMenueOptios {
+		eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
+		eUpdateUser = 4, eFindUser = 5, eMainMenue = 6
+	};
 
 	static short _ReadManageUsersMenueOption()
 	{
