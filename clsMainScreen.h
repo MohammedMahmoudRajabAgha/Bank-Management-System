@@ -14,6 +14,9 @@
 #include"Global.h"
 #include"clsLoginRegisterScreen.h"
 
+#include"clsManageClientsScreen.h"
+#include"clsLogoutRegisterScreen.h"
+
 using namespace std;
 
 class clsMainScreen :protected clsScreen
@@ -22,9 +25,8 @@ class clsMainScreen :protected clsScreen
 
 private:
     enum enMainMenueOptions {
-        eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
-        eUpdateClient = 4, eFindClient = 5, eShowTransactionsMenue = 6,
-        eManageUsers = 7, eLoginRegister = 8, eExit = 9
+        eShowTransactionsMenue = 1, eManageClients = 2
+        , eManageUsers = 3, eLoginRegister = 4, eLogoutRegister = 5, eExit = 6
     };
 
     static short _ReadMainMenueOption()
@@ -42,51 +44,19 @@ private:
         ShowMainMenue();
     }
 
-    static void _ShowAllClientsScreen()
-    {
-        ////Stub...
-        //cout << "\nClient List Screen Will be here...\n";
-
-        clsClientListScreen::ShowClientsList();
-    }
-
-    static void _ShowAddNewClientsScreen()
-    {
-        ////Stub...
-        //cout << "\nAdd New Client Screen Will be here...\n";
-
-        clsAddNewClientScreen::ShowAddNewClientScreen();
-    }
-
-    static void _ShowDeleteClientScreen()
-    {
-        ////Stub...
-        //cout << "\nDelete Client Screen Will be here...\n";
-        clsDeleteClientScreen::ShowDeleteClientScreen();
-    }
-
-    static void _ShowUpdateClientScreen()
-    {
-        ////Stub...
-        //cout << "\nUpdate Client Screen Will be here...\n";
-        clsUpdateClientScreen::ShowUpdateClientScreen();
-    }
-
-    static void _ShowFindClientScreen()
-    {
-        ////Stub...
-        //cout << "\nFind Client Screen Will be here...\n";
-
-        clsFindClientScreen::ShowFindClientScreen();
-
-    }
-
     static void _ShowTransactionsMenue()
     {
         ////Stub...
         //cout << "\nTransactions Menue Will be here...\n";
         clsTransactionsScreen::ShowTransactionsMenue();
 
+    }
+
+    static void _ShowManageClientsMenue()
+    {
+        ////Stub...
+        //cout << "\Clientts Menue Will be here...\n";
+        clsManageClientsScreen::ShowManageClientsMenue();
     }
 
     static void _ShowManageUsersMenue()
@@ -104,6 +74,14 @@ private:
         clsLoginRegisterScreen::ShowLoginRegisterScreen();
     }
 
+    static void _ShowLogoutRegisterScreen()
+    {
+        ////Stub...
+        //cout << "\nLogout Register Screen will be here...\n";
+        clsLogoutRegisterScreen::ShowLogoutRegisterScreen();
+    }
+
+
     //static void _ShowEndScreen()
     //{
     //    //Stub...
@@ -112,6 +90,8 @@ private:
 
     static void _Logout()
     {
+        CurrentUser.RegisterLogOut();
+
         CurrentUser = clsUser::Find("", "");
 
         //then it will go back to main function
@@ -121,40 +101,15 @@ private:
     {
         switch (MainMenueOption)
         {
-        case enMainMenueOptions::eListClients:
-        {
-            system("cls");
-            _ShowAllClientsScreen();
-            _GoBackToMainMenue();
-            break;
-        }
-        case enMainMenueOptions::eAddNewClient:
-            system("cls");
-            _ShowAddNewClientsScreen();
-            _GoBackToMainMenue();
-            break;
-
-        case enMainMenueOptions::eDeleteClient:
-            system("cls");
-            _ShowDeleteClientScreen();
-            _GoBackToMainMenue();
-            break;
-
-        case enMainMenueOptions::eUpdateClient:
-            system("cls");
-            _ShowUpdateClientScreen();
-            _GoBackToMainMenue();
-            break;
-
-        case enMainMenueOptions::eFindClient:
-            system("cls");
-            _ShowFindClientScreen();
-            _GoBackToMainMenue();
-            break;
-
         case enMainMenueOptions::eShowTransactionsMenue:
             system("cls");
             _ShowTransactionsMenue();
+            _GoBackToMainMenue();
+            break;
+
+        case enMainMenueOptions::eManageClients:
+            system("cls");
+            _ShowManageClientsMenue();
             _GoBackToMainMenue();
             break;
 
@@ -167,6 +122,12 @@ private:
         case enMainMenueOptions::eLoginRegister:
             system("cls");
             _ShowLoginRegisterScreen();
+            _GoBackToMainMenue();
+            break;
+
+        case enMainMenueOptions::eLogoutRegister:
+            system("cls");
+            _ShowLogoutRegisterScreen();
             _GoBackToMainMenue();
             break;
 
@@ -197,7 +158,7 @@ public:
         cout << setw(37) << left << "" << "\t[2] Manage Clients.\n";
         cout << setw(37) << left << "" << "\t[3] Manage Users.\n";
         cout << setw(37) << left << "" << "\t[4] Login Register.\n";
-        cout << setw(37) << left << "" << "\t[5] Login Register.\n";
+        cout << setw(37) << left << "" << "\t[5] Logout Register.\n";
         cout << setw(37) << left << "" << "\t[6] Logout.\n";
         cout << setw(37) << left << "" << "============================================\n";
 
