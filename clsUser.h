@@ -59,7 +59,7 @@ private:
         vUserData = clsString::Split(Line, Seperator);
 
         return clsUser(enMode::UpdateMode, vUserData[0], vUserData[1], vUserData[2],
-            vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5]) , stoi(vUserData[6]));
+            vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5]), stoi(vUserData[6]));
 
     }
 
@@ -196,7 +196,7 @@ public:
     enum enPermissions
     {
         eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClient = 8,
-        pFindClient = 16, pTransactions = 32, pManageUsers = 64, pShowLogInRegister = 128
+        pFindClient = 16, pTransactions = 32, pManageUsers = 64, pShowLogInRegister = 128, pShowLogoutRegister = 256
     };
 
     clsUser(enMode Mode, string FirstName, string LastName,

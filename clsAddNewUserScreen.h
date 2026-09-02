@@ -126,6 +126,14 @@ private:
             Permissions += clsUser::enPermissions::pShowLogInRegister;
         }
 
+        cout << "\nShow Logout Register? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            //Permissions |= clsUser::enPermissions::pLogoutRegister;
+            Permissions += clsUser::enPermissions::pShowLogoutRegister;
+        }
+
         return Permissions;
 
     }
