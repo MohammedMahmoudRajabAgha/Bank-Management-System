@@ -443,7 +443,20 @@ public:
         return vLoginRegisterRecord;
     }
 
-   
+    void RegisterLogOut()
+    {
+        string stDataLine = _PrepareLogoutRecord();
+
+        fstream MyFile;
+        MyFile.open("LogoutRegister.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+        }
+    }
 
 };
 
