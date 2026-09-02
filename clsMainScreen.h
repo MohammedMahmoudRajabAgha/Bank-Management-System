@@ -13,6 +13,7 @@
 #include"clsManageUsersScreen.h"
 #include"Global.h"
 #include"clsLoginRegisterScreen.h"
+#include"clsUser.h"
 
 using namespace std;
 
@@ -118,6 +119,8 @@ private:
 
     static void _Logout()
     {
+        CurrentUser.RegisterLogOut();
+
         CurrentUser = clsUser::Find("", "");
 
         //then it will go back to main function
