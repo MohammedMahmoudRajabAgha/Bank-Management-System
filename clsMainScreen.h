@@ -176,6 +176,12 @@ private:
             _GoBackToMainMenue();
             break;
 
+        case enMainMenueOptions::eLogoutRegister:
+            system("cls");
+            _ShowLogoutRegisterScreen();
+            _GoBackToMainMenue();
+            break;
+
         case enMainMenueOptions::eExit:
             system("cls");
             _Logout();
