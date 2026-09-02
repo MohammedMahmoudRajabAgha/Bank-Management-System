@@ -24,7 +24,7 @@ private:
     enum enMainMenueOptions {
         eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
         eUpdateClient = 4, eFindClient = 5, eShowTransactionsMenue = 6,
-        eManageUsers = 7, eLoginRegister = 8, eExit = 9
+        eManageUsers = 7, eLoginRegister = 8, eLogoutRegister = 9, eExit = 10
     };
 
     static short _ReadMainMenueOption()
