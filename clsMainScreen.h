@@ -14,6 +14,7 @@
 #include"Global.h"
 #include"clsLoginRegisterScreen.h"
 #include"clsUser.h"
+#include"clsLogoutRegisterScreen.h"
 
 using namespace std;
 
@@ -107,8 +108,10 @@ private:
 
     static void _ShowLogoutRegisterScreen()
     {
-        //Stub...
-        cout << "\nLogout Register Screen will be here...\n";
+        ////Stub...
+        //cout << "\nLogout Register Screen will be here...\n";
+
+        clsLogoutRegisterScreen::ShowLogoutRegisterScreen();
     }
 
     //static void _ShowEndScreen()

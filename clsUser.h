@@ -22,6 +22,8 @@ private:
     bool _MarkedForDelete = false;
 
     struct stLoginRegisterRecord;
+    struct stLogoutRegisterRecord;
+
     string _PrepareLogInRecord(string Separator = "#//#")
     {
         string LogInRecord = "";
@@ -52,6 +54,22 @@ private:
 
         return LoginRegisterRecord;
     }
+
+    static stLogoutRegisterRecord _ConvertLogoutRegisterLineToRecord(string Line, string Seperater = "#//#")
+    {
+        stLogoutRegisterRecord LogoutRegisterRecord;
+
+        vector<string>LogoutRegisterDataLine = clsString::Split(Line, Seperater);
+
+        LogoutRegisterRecord.DateTime = LogoutRegisterDataLine[0];
+        LogoutRegisterRecord.UserName = LogoutRegisterDataLine[1];
+        LogoutRegisterRecord.Password = clsUtil::DecryptText(LogoutRegisterDataLine[2]);
+        LogoutRegisterRecord.Permissions = stoi(LogoutRegisterDataLine[3]);
+
+        return LogoutRegisterRecord;
+    }
+
+
 
     static clsUser _ConvertLinetoUserObject(string Line, string Seperator = "#//#")
     {
@@ -186,6 +204,14 @@ private:
 public:
 
     struct stLoginRegisterRecord
+    {
+        string DateTime;
+        string UserName;
+        string Password;
+        int Permissions;
+    };
+
+    struct stLogoutRegisterRecord
     {
         string DateTime;
         string UserName;
@@ -456,6 +482,31 @@ public:
 
             MyFile.close();
         }
+    }
+
+    static vector<stLogoutRegisterRecord> GetLogoutRegisterList()
+    {
+        vector <stLogoutRegisterRecord> vLogoutRegisterRecord;
+        fstream MyFile;
+
+        MyFile.open("LogoutRegister.txt", ios::in);//read mode...
+
+        if (MyFile.is_open())
+        {
+            string Line;
+            stLogoutRegisterRecord LogoutRegisterRecord;
+
+            while (getline(MyFile, Line))
+            {
+                LogoutRegisterRecord = _ConvertLogoutRegisterLineToRecord(Line);
+
+                vLogoutRegisterRecord.push_back(LogoutRegisterRecord);
+            }
+
+            MyFile.close();
+        }
+
+        return vLogoutRegisterRecord;
     }
 
 };
