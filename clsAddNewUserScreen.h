@@ -62,46 +62,6 @@ private:
 
         cout << "\nDo you want to give access to : \n ";
 
-        cout << "\nShow Client List? y/n? ";
-        cin >> Answer;
-        if (Answer == 'y' || Answer == 'Y')
-        {
-            //Permissions |= clsUser::enPermissions::pListClients;
-            Permissions += clsUser::enPermissions::pListClients;
-        }
-
-        cout << "\nAdd New Client? y/n? ";
-        cin >> Answer;
-        if (Answer == 'y' || Answer == 'Y')
-        {
-            //Permissions |= clsUser::enPermissions::pAddNewClient;
-            Permissions += clsUser::enPermissions::pAddNewClient;
-        }
-
-        cout << "\nDelete Client? y/n? ";
-        cin >> Answer;
-        if (Answer == 'y' || Answer == 'Y')
-        {
-            //Permissions |= clsUser::enPermissions::pDeleteClient;
-            Permissions += clsUser::enPermissions::pDeleteClient;
-        }
-
-        cout << "\nUpdate Client? y/n? ";
-        cin >> Answer;
-        if (Answer == 'y' || Answer == 'Y')
-        {
-            //Permissions |= clsUser::enPermissions::pUpdateClient;
-            Permissions += clsUser::enPermissions::pUpdateClient;
-        }
-
-        cout << "\nFind Client? y/n? ";
-        cin >> Answer;
-        if (Answer == 'y' || Answer == 'Y')
-        {
-            //Permissions |= clsUser::enPermissions::pFindClient;
-            Permissions += clsUser::enPermissions::pFindClient;
-        }
-
         cout << "\nTransactions? y/n? ";
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y')
@@ -109,6 +69,15 @@ private:
             //Permissions |= clsUser::enPermissions::pTransactions;
             Permissions += clsUser::enPermissions::pTransactions;
         }
+
+        cout << "\nManage Clients? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            //Permissions |= clsUser::enPermissions::pManageClients;
+            Permissions += clsUser::enPermissions::pManageClients;;
+        }
+
 
         cout << "\nManage Users? y/n? ";
         cin >> Answer;
@@ -125,6 +94,15 @@ private:
             //Permissions |= clsUser::enPermissions::pLoginRegister;
             Permissions += clsUser::enPermissions::pShowLogInRegister;
         }
+
+        cout << "\nShow Logout Register? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            //Permissions |= clsUser::enPermissions::pLogoutRegister;
+            Permissions += clsUser::enPermissions::pShowLogoutRegister;
+        }
+
 
         return Permissions;
 

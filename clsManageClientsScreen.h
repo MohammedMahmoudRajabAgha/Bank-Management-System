@@ -132,6 +132,11 @@ public:
     static void ShowManageClientsMenue()
     {
 
+        if (!clsScreen::CeckAccessRights(clsUser::enPermissions::pManageClients))
+        {
+            return;// this will exit the function and it will not continue
+        }
+
         system("cls");
         _DrawScreenHeader("\t\tManage Clients Screen");
 

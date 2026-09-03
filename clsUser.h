@@ -221,8 +221,8 @@ public:
 
     enum enPermissions
     {
-        eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClient = 8,
-        pFindClient = 16, pTransactions = 32, pManageUsers = 64, pShowLogInRegister = 128, pShowLogoutRegister = 256
+        eAll = -1, pTransactions = 1, pManageClients = 2, pManageUsers = 4
+        , pShowLogInRegister = 8, pShowLogoutRegister = 16
     };
 
     clsUser(enMode Mode, string FirstName, string LastName,
