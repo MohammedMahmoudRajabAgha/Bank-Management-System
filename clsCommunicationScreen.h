@@ -3,6 +3,9 @@
 #include"clsScreen.h"
 #include"clsInputValidate.h"
 #include <iomanip>
+#include"clsMessageBoxScreen.h"
+
+using namespace std;
 
 class clsCommunicationScreen :protected clsScreen
 {
@@ -24,8 +27,9 @@ class clsCommunicationScreen :protected clsScreen
 
 	static void _ShowMessageBoxScreen()
 	{
-		//Stub...
-		cout << "\nMessage Box Screen will be here...\n";
+		////Stub...
+		//cout << "\nMessage Box Screen will be here...\n";
+		clsMessageBoxScreen::ShowMessageBoxScreen();
 	}
 	
 	static void _ShowSendMessageScreen()

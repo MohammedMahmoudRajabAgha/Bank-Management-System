@@ -34,6 +34,20 @@ private:
         return MessageRecord;
     }
 
+    static stMessageRecord _ConvertMessageLineToRecord(string Line, string Seperater = "#//#")
+    {
+        stMessageRecord MessageRecord;
+
+        vector<string>MessageRecordDataLine = clsString::Split(Line, Seperater);
+
+        MessageRecord.DateTime = MessageRecordDataLine[0];
+        MessageRecord.srcUserName = MessageRecordDataLine[1];
+        MessageRecord.Message = MessageRecordDataLine[2];
+
+        return MessageRecord;
+    }
+
+
     struct stLoginRegisterRecord;
     struct stLogoutRegisterRecord;
 
@@ -529,8 +543,6 @@ public:
         string Message;
     };
 
-
-
     bool SendEmail(string UserName, string Message)
     {
         clsUser DestinationUser = clsUser::Find(UserName);
@@ -558,8 +570,30 @@ public:
 
     }
 
-    void SendSMS(string Title, string Body)
+    static vector<stMessageRecord> GetMessageRecordList(string UserName)
     {
+        vector<stMessageRecord> vMessageRecord;
+
+        fstream MyFile;
+
+        MyFile.open(UserName + "_MSGBOX", ios::in);//read mode...
+
+        if (MyFile.is_open())
+        {
+            string Line;
+            stMessageRecord MessageRecord;
+
+            while (getline(MyFile, Line))
+            {
+                MessageRecord = _ConvertMessageLineToRecord(Line);
+
+                vMessageRecord.push_back(MessageRecord);
+            }
+
+            MyFile.close();
+        }
+
+        return vMessageRecord;
 
     }
 
