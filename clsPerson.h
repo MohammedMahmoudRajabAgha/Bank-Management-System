@@ -69,20 +69,22 @@ public:
 	}
 
 	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
-	void SendEmail(string Title, string Body)
+	bool SendEmail( string Body)
 	{
+		return true;
+	}
+
+	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
+	bool SendFax(string Body)
+	{
+		return true;
 
 	}
 
 	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
-	void SendFax(string Title, string Body)
+	bool SendSMS( string Body)
 	{
-
-	}
-
-	//Overriding of Pure Virtual Method in Communication Abstract Class (Interface)
-	void SendSMS(string Title, string Body)
-	{
+		return true;
 
 	}
 

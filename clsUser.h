@@ -21,6 +21,19 @@ private:
 
     bool _MarkedForDelete = false;
 
+    struct stMessageRecord;
+
+    string _PrepareMessageRecord(string Message, string Separater = "#//#")
+    {
+        string MessageRecord;
+
+        MessageRecord += clsDate::GetSystemDateTimeString() + Separater;
+        MessageRecord += this->UserName + Separater;
+        MessageRecord += Message;
+
+        return MessageRecord;
+    }
+
     struct stLoginRegisterRecord;
     struct stLogoutRegisterRecord;
 
@@ -507,6 +520,47 @@ public:
         }
 
         return vLogoutRegisterRecord;
+    }
+
+    struct stMessageRecord
+    {
+        string DateTime;
+        string srcUserName;
+        string Message;
+    };
+
+
+
+    bool SendEmail(string UserName, string Message)
+    {
+        clsUser DestinationUser = clsUser::Find(UserName);
+
+        if (DestinationUser.IsEmpty())
+        {
+            return false;
+        }
+
+        string stDataLine = _PrepareMessageRecord(Message);
+
+        fstream MyFile;
+        MyFile.open(DestinationUser.UserName + "_MSGBOX", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+
+            return true;
+        }
+
+        return false;
+
+    }
+
+    void SendSMS(string Title, string Body)
+    {
+
     }
 
 };

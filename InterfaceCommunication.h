@@ -8,9 +8,9 @@ class InterfaceCommunication
 {
 public:
 
-	virtual void SendEmail(string Title, string Body) = 0;
-	virtual void SendFax(string Title, string Body) = 0;
-	virtual void SendSMS(string Title, string Body) = 0;
+	virtual bool SendEmail( string Body) = 0;
+	virtual bool SendFax( string Body) = 0;
+	virtual bool SendSMS( string Body) = 0;
 
 };
 

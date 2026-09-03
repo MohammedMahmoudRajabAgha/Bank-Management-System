@@ -7,20 +7,21 @@
 #include"clsDeleteUserScreen.h"
 #include"clsUpdateUserScreen.h"
 #include"clsFindUserScreen.h"
+#include"clsCommunicationScreen.h"
 
 class clsManageUsersScreen:protected clsScreen
 {
 	enum enManageUsersMenueOptios {
 		eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
-		eUpdateUser = 4, eFindUser = 5, eMainMenue = 6
+		eUpdateUser = 4, eFindUser = 5, eCommunication = 6, eMainMenue = 7
 	};
 
 	static short _ReadManageUsersMenueOption()
 	{
 		short Choice;
 		cout << setw(37) << left << "" 
-			<< "Choose what do you want to do ? [1 To 6] ? ";
-		Choice = clsInputValidate::ReadShortNumberBetween(1, 6, "Enter Number between 1 to 6? ");
+			<< "Choose what do you want to do ? [1 To 7] ? ";
+		Choice = clsInputValidate::ReadShortNumberBetween(1, 7, "Enter Number between 1 to 7? ");
 
 		return Choice;
 	}
@@ -53,6 +54,13 @@ class clsManageUsersScreen:protected clsScreen
 	{
 		/*cout << "\nFind User Screen will be here.\n";*/
 		clsFindUserScreen::ShowFindUserScreen();
+	}
+
+	void static _ShowCommunicationScreen()
+	{
+		////Stub...
+		//cout << "\n Communcation Menue Screen will be here...\n";
+		clsCommunicationScreen::ShowCommunicationMenue();
 	}
 
 	static void _GoBackToManageUsersMenue()
@@ -107,6 +115,14 @@ class clsManageUsersScreen:protected clsScreen
 			break;
 		}
 
+		case enManageUsersMenueOptios::eCommunication:
+		{
+			system("cls");
+			_ShowCommunicationScreen();
+			_GoBackToManageUsersMenue();
+			break;
+		}
+
 		case enManageUsersMenueOptios::eMainMenue:
 		{
 
@@ -136,7 +152,8 @@ public:
 		cout << setw(37) << left << "" << "\t[3] Delete User.\n";
 		cout << setw(37) << left << "" << "\t[4] Update User.\n";
 		cout << setw(37) << left << "" << "\t[5] Find User.\n";
-		cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+		cout << setw(37) << left << "" << "\t[6] Communication\n";
+		cout << setw(37) << left << "" << "\t[7] Main Menue.\n";
 		cout << setw(37) << left << "" << "============================================\n";
 
 		_PerformManageUsersMenueOption((enManageUsersMenueOptios)_ReadManageUsersMenueOption());
