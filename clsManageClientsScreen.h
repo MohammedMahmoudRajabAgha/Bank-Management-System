@@ -138,7 +138,7 @@ public:
         }
 
         system("cls");
-        _DrawScreenHeader("\t\tManage Clients Screen");
+        _DrawScreenHeader("\tManage Clients Screen");
 
         cout << setw(37) << left << "" << "============================================\n";
         cout << setw(37) << left << "" << "\t\t\Manage Clients Menue\n";
