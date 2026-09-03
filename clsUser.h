@@ -22,6 +22,8 @@ private:
     bool _MarkedForDelete = false;
 
     struct stLoginRegisterRecord;
+    struct stLogoutRegisterRecord;
+
     string _PrepareLogInRecord(string Separator = "#//#")
     {
         string LogInRecord = "";
@@ -53,13 +55,29 @@ private:
         return LoginRegisterRecord;
     }
 
+    static stLogoutRegisterRecord _ConvertLogoutRegisterLineToRecord(string Line, string Seperater = "#//#")
+    {
+        stLogoutRegisterRecord LogoutRegisterRecord;
+
+        vector<string>LogoutRegisterDataLine = clsString::Split(Line, Seperater);
+
+        LogoutRegisterRecord.DateTime = LogoutRegisterDataLine[0];
+        LogoutRegisterRecord.UserName = LogoutRegisterDataLine[1];
+        LogoutRegisterRecord.Password = clsUtil::DecryptText(LogoutRegisterDataLine[2]);
+        LogoutRegisterRecord.Permissions = stoi(LogoutRegisterDataLine[3]);
+
+        return LogoutRegisterRecord;
+    }
+
+
+
     static clsUser _ConvertLinetoUserObject(string Line, string Seperator = "#//#")
     {
         vector<string> vUserData;
         vUserData = clsString::Split(Line, Seperator);
 
         return clsUser(enMode::UpdateMode, vUserData[0], vUserData[1], vUserData[2],
-            vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5]) , stoi(vUserData[6]));
+            vUserData[3], vUserData[4], clsUtil::DecryptText(vUserData[5]), stoi(vUserData[6]));
 
     }
 
@@ -193,10 +211,18 @@ public:
         int Permissions;
     };
 
+    struct stLogoutRegisterRecord
+    {
+        string DateTime;
+        string UserName;
+        string Password;
+        int Permissions;
+    };
+
     enum enPermissions
     {
         eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClient = 8,
-        pFindClient = 16, pTransactions = 32, pManageUsers = 64, pShowLogInRegister = 128
+        pFindClient = 16, pTransactions = 32, pManageUsers = 64, pShowLogInRegister = 128, pShowLogoutRegister = 256
     };
 
     clsUser(enMode Mode, string FirstName, string LastName,
@@ -456,6 +482,31 @@ public:
 
             MyFile.close();
         }
+    }
+
+    static vector<stLogoutRegisterRecord> GetLogoutRegisterList()
+    {
+        vector <stLogoutRegisterRecord> vLogoutRegisterRecord;
+        fstream MyFile;
+
+        MyFile.open("LogoutRegister.txt", ios::in);//read mode...
+
+        if (MyFile.is_open())
+        {
+            string Line;
+            stLogoutRegisterRecord LogoutRegisterRecord;
+
+            while (getline(MyFile, Line))
+            {
+                LogoutRegisterRecord = _ConvertLogoutRegisterLineToRecord(Line);
+
+                vLogoutRegisterRecord.push_back(LogoutRegisterRecord);
+            }
+
+            MyFile.close();
+        }
+
+        return vLogoutRegisterRecord;
     }
 
 };
