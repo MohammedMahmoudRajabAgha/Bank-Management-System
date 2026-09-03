@@ -8,6 +8,7 @@
 #include"clsWithdrawScreen.h"
 #include"clsTotalBalancesScreen.h"
 #include"clsTransferScreen.h"
+#include"clsTransactionLogScreen.h"
 #include"clsTransferLogScreen.h"
 
 using namespace std;
@@ -44,8 +45,9 @@ private:
 
     static void _ShowTrasactionLogScreen()
     {
-        //Stub...
-        cout << "\nTransaction Log Screen will be here...\n";
+        ////Stub...
+        //cout << "\nTransaction Log Screen will be here...\n";
+        clsTransactionLogScreen::ShowTransactionLogScreen();
 
     }
 

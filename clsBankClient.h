@@ -19,13 +19,18 @@ private:
     float _AccountBalance;
     bool _MarkedForDelete = false;
 
-    enum enOpType { eDeposit = 0, eWithdraw = 1 };
-
+    enum enOpType;
+    struct stTransactionLogRecord;
     string _GetOpTypeString(enOpType OpType)
     {
         string OpTypeStringArr[] = { "Deposit","Withdraw" };
 
         return OpTypeStringArr[OpType];
+    }
+
+    static enOpType _GetenOpType(string OpType)
+    {
+       return (OpType == "Deposit") ? enOpType::eDeposit : enOpType::eWithdraw;
     }
 
     string _PrepareTransactionLogRecord(enOpType OpType,double Amount,string UserName ,string Separator = "#//#")
@@ -89,6 +94,23 @@ private:
         }
     }
    
+    static stTransactionLogRecord _ConvertTransactionLogLineToRecord(string Line, string Seperater = "#//#")
+    {
+        vector<string> vDataLine = clsString::Split(Line, Seperater);
+        stTransactionLogRecord Record;
+
+        Record.DateTime = vDataLine[0];
+        Record.AccountNumber = vDataLine[1];
+        Record.OpType = _GetenOpType(vDataLine[2]);
+        Record.Amount = stod(vDataLine[3]);
+        Record.BalanceAfter = stod(vDataLine[4]);
+        Record.UserName = vDataLine[5];
+
+        return Record;
+    }
+
+
+
     struct stTransferLogRecord;
     static stTransferLogRecord _ConvertTransferLogLineToRecord(string Line, string Seperater = "#//#")
     {
@@ -259,6 +281,8 @@ public:
         double destBalanceAfter;
         string UserName;
     };
+
+    enum enOpType { eDeposit = 0, eWithdraw = 1 };
 
     struct stTransactionLogRecord
     {
@@ -552,5 +576,30 @@ public:
         }
         
         return vTransferLogRecord;
+    }
+
+    static vector <stTransactionLogRecord> GetTransactionLogList()
+    {
+        vector<stTransactionLogRecord> vTransactionLogRecord;
+
+        fstream MyFile;
+        MyFile.open("TransactionLog.txt", ios::in);//read mode...
+
+        if (MyFile.is_open())
+        {
+            string Line;
+            stTransactionLogRecord TransactionRecord;
+
+            while (getline(MyFile, Line))
+            {
+                TransactionRecord = _ConvertTransactionLogLineToRecord(Line);
+
+                vTransactionLogRecord.push_back(TransactionRecord);
+            }
+
+            MyFile.close();
+        }
+
+        return vTransactionLogRecord;
     }
 };
