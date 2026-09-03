@@ -19,6 +19,45 @@ private:
     float _AccountBalance;
     bool _MarkedForDelete = false;
 
+    enum enOpType { eDeposit = 0, eWithdraw = 1 };
+
+    string _GetOpTypeString(enOpType OpType)
+    {
+        string OpTypeStringArr[] = { "Deposit","Withdraw" };
+
+        return OpTypeStringArr[OpType];
+    }
+
+    string _PrepareTransactionLogRecord(enOpType OpType,double Amount,string UserName ,string Separator = "#//#")
+    {
+        string TransactionLogRecord = "";
+
+        TransactionLogRecord += clsDate::GetSystemDateTimeString() + Separator;
+        TransactionLogRecord += _AccountNumber + Separator;
+        TransactionLogRecord += _GetOpTypeString(OpType) + Separator;
+        TransactionLogRecord += to_string(Amount) + Separator;
+        TransactionLogRecord += to_string(AccountBalance) + Separator;
+        TransactionLogRecord += UserName;
+
+        return TransactionLogRecord;
+    }
+
+    void _RegisterTransactionLogRecord(enOpType OpType, double Amount, string UserName)
+    {
+        string stDataLine = _PrepareTransactionLogRecord(OpType, Amount, UserName);
+
+        fstream MyFile;
+        MyFile.open("TransactionLog.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+        }
+
+    }
+
     string _PrepareTransferLogRecord(double Amount, clsBankClient DestinationClient, string UserName , string Separator = "#//#")
     {
         string TransferLogRecord = "";
@@ -220,6 +259,17 @@ public:
         double destBalanceAfter;
         string UserName;
     };
+
+    struct stTransactionLogRecord
+    {
+        string DateTime;
+        string AccountNumber;
+        enOpType OpType;
+        double Amount;
+        double BalanceAfter;
+        string UserName;
+    };
+
 
     bool IsEmpty()
     {
@@ -437,19 +487,20 @@ public:
         return TotalBalances;
     }
    
-    bool Deposit(double Amount)
+    bool Deposit(double Amount, string UserName)
     {
         if (Amount > 0)
         {
             _AccountBalance += Amount;
             Save();
+            _RegisterTransactionLogRecord(enOpType::eDeposit, Amount, UserName);
             return true;
         }
 
         return false;
     }
 
-    bool Withdraw(double Amount)
+    bool Withdraw(double Amount,string UserName)
     {
         if (Amount > _AccountBalance)
         {
@@ -459,6 +510,7 @@ public:
         {
             _AccountBalance -= Amount;
             Save();
+            _RegisterTransactionLogRecord(enOpType::eWithdraw, Amount, UserName);
             return true;
         }
     }
@@ -470,8 +522,8 @@ public:
             return false;
         }
 
-        Withdraw(Amount);
-        DestinationClient.Deposit(Amount);
+        Withdraw(Amount, UserName);
+        DestinationClient.Deposit(Amount,UserName);
         _RegisterTransferLogRecord(Amount, DestinationClient, UserName);
 
         return true;

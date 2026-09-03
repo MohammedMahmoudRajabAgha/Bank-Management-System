@@ -3,6 +3,8 @@
 #include"clsMainScreen.h"
 #include"clsInputValidate.h"
 #include"clsBankClient.h"
+#include"Global.h"
+
 using namespace std;
 
 class clsWithdrawScreen :protected clsScreen
@@ -75,7 +77,7 @@ public:
 		if (Answer == 'Y' || Answer == 'y')
 		{
 
-			if (Client1.Withdraw(Amount))
+			if (Client1.Withdraw(Amount, CurrentUser.UserName))
 			{
 				cout << "\n\nAmount Withdraw Successfully :-)\n";
 				cout << "\nNew Balance Is : " << Client1.AccountBalance;

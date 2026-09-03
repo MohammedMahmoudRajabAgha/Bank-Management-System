@@ -3,6 +3,8 @@
 #include"clsMainScreen.h"
 #include"clsInputValidate.h"
 #include"clsBankClient.h"
+#include"Global.h"
+
 using namespace std;
 
 class clsDepositScreen :protected clsScreen
@@ -66,7 +68,7 @@ public:
 		if (Answer == 'Y' || Answer == 'y')
 		{
 
-			if (Client1.Deposit(Amount))
+			if (Client1.Deposit(Amount, CurrentUser.UserName))
 			{
 				cout << "\n\nAmount Deposit Successfully :-)\n";
 				cout << "\nNew Balance Is : " << Client1.AccountBalance;
