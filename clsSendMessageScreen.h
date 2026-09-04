@@ -39,6 +39,9 @@ public:
 			cout << "\nThis User is NOT Found, Please Enter another one ? ";
 			string DestinationUserName = clsInputValidate::ReadString();
 
+			 DestinationUser = clsUser::Find(DestinationUserName);
+
+
 		}
 
 		cout << "\nEnter The Message : ";
