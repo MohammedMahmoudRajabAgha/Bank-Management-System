@@ -14,7 +14,7 @@ private:
 	static void _PrintUserCard(clsUser User)
 	{
 		cout << "\nUser Card:";
-		cout << "\n___________________";
+		cout << "\n___________________\n";
 		cout << "\nFull Name   : " << User.FullName();
 		cout << "\nEmail       : " << User.Email;
 		cout << "\nPhone       : " << User.Phone;
@@ -44,10 +44,10 @@ public:
 		cout << "\nEnter The Message : ";
 		string Message = clsInputValidate::ReadString();
 
-		if (CurrentUser.SendEmail(DestinationUser, Message))
+		if (CurrentUser.SendMessage(DestinationUser, Message))
 		{
 			cout << "\n Message Sent Successfuly To : ";
-			cout << "\n__________________________________________";
+			cout << "\n__________________________________________\n";
 			
 			_PrintUserCard(DestinationUser);
 			

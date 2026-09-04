@@ -5,6 +5,7 @@
 #include <iomanip>
 #include"clsMessageBoxScreen.h"
 #include"clsSendMessageScreen.h"
+#include"clsClearMessageBoxScreen.h"
 
 using namespace std;
 
@@ -41,10 +42,12 @@ class clsCommunicationScreen :protected clsScreen
 		clsSendMessageScreen::ShowSendMessageScreen();
 	}
 
-	static void _ShowClearMessageScreen()
+	static void _ShowClearMessageBoxScreen()
 	{
-		//Stub...
-		cout << "\nClear Message Screen will be here...\n";
+		////Stub...
+		//cout << "\nClear Message Screen will be here...\n";
+	
+		clsClearMessageBoxScreen::ShowClearMessagBoxScreen();
 	}
 
 	static void _GoBackToCommunicationMenue()
@@ -77,7 +80,7 @@ class clsCommunicationScreen :protected clsScreen
 		case enCommunuicationOptions::eClearMessageBox:
 		{
 			system("cls");
-			_ShowClearMessageScreen();
+			_ShowClearMessageBoxScreen();
 			_GoBackToCommunicationMenue();
 			break;
 		}

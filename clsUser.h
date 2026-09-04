@@ -597,5 +597,23 @@ public:
 
     }
 
+    bool ClearMessageBox()
+    {
+        fstream MyFile;
+        MyFile.open(this->UserName + "_MSGBOX", ios::out);
+
+        if (MyFile.is_open())
+        {
+           
+            MyFile.close();
+
+            return true;
+        }
+
+        return false;
+
+
+    }
+
 };
 
