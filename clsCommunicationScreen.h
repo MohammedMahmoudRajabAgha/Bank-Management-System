@@ -4,6 +4,7 @@
 #include"clsInputValidate.h"
 #include <iomanip>
 #include"clsMessageBoxScreen.h"
+#include"clsSendMessageScreen.h"
 
 using namespace std;
 
@@ -34,8 +35,10 @@ class clsCommunicationScreen :protected clsScreen
 	
 	static void _ShowSendMessageScreen()
 	{
-		//Stub...
-		cout << "\nSend Message Screen will be here...\n";
+		////Stub...
+		//cout << "\nSend Message Screen will be here...\n";
+
+		clsSendMessageScreen::ShowSendMessageScreen();
 	}
 
 	static void _ShowClearMessageScreen()
@@ -103,7 +106,7 @@ public:
 		cout << setw(37) << left << "" << "\t[1] Message Box.\n";
 		cout << setw(37) << left << "" << "\t[2] Send Message.\n";
 		cout << setw(37) << left << "" << "\t[3] Clear Message Box\n";
-		cout << setw(37) << left << "" << "\t[4] Manage Users.\n";
+		cout << setw(37) << left << "" << "\t[4] Main Menue.\n";
 		cout << setw(37) << left << "" << "============================================\n";
 
 		_PerformCommunicationMenueOption((enCommunuicationOptions)_ReadCommunicationMenueOption());
