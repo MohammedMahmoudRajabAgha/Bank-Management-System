@@ -543,9 +543,9 @@ public:
         string Message;
     };
 
-    bool SendEmail(string UserName, string Message)
+    bool SendMessage(clsUser DestinationUser, string Message)
     {
-        clsUser DestinationUser = clsUser::Find(UserName);
+       
 
         if (DestinationUser.IsEmpty())
         {

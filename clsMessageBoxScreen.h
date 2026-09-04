@@ -11,7 +11,7 @@ class clsMessageBoxScreen:protected clsScreen
 	static void _PrintMessageRecordLine(clsUser::stMessageRecord MessageRecord)
 	{
 		cout << "\t| " << setw(23) << left << MessageRecord.DateTime;
-		cout << "| " << setw(10) << left << MessageRecord.srcUserName;
+		cout << "| " << setw(15) << left << MessageRecord.srcUserName;
 		cout << "| " << setw(50) << left << MessageRecord.Message;
 	}
 
@@ -21,20 +21,20 @@ public:
 	{
 		vector <clsUser::stMessageRecord> vMessagesRecord = clsUser::GetMessageRecordList(CurrentUser.UserName);
 
-        string Title = "\t  Message Box Screen";
-        string SubTitle = "\t    (" + to_string(vMessagesRecord.size()) + ") Message(s).";
+		string Title = "\t  Message Box Screen";
+		string SubTitle = "\t    (" + to_string(vMessagesRecord.size()) + ") Message(s).";
 
-        _DrawScreenHeader(Title, SubTitle);
+		_DrawScreenHeader(Title, SubTitle);
 
-		cout << setw(8) << left << "" << "\n\t_______________________________________________________";
-		cout << "_________________________________________\n" << endl;
+		cout << setw(8) << left << "" << "\n\t________________________________________________________________________________";
+		cout << "_______________________________________________________________________________________________________________\n" << endl;
 
-		cout << "\n\t| " << setw(23) << left << "Date/Time";
-		cout << "| " << setw(10) << left << "srcUserName";
-		cout << "| " << setw(50) << left << "Message";
+		cout << "\n\t| " << setw(23) << left << " Date/Time";
+		cout << "| " << setw(15) << left << " srcUserName";
+		cout << "| " << setw(50) << left << " Message";
 
-		cout << setw(8) << left << "" << "\n\t_______________________________________________________";
-		cout << "_________________________________________\n" << endl;
+		cout << setw(8) << left << "" << "\n\t________________________________________________________________________________";
+		cout << "_______________________________________________________________________________________________________________\n" << endl;
 
 		if (vMessagesRecord.size() == 0)
 			cout << "\t\t\t\tNo Messages Available In the Post Box!";
@@ -47,8 +47,8 @@ public:
 			}
 		}
 
-		cout << setw(8) << left << "" << "\n\t_______________________________________________________";
-		cout << "_________________________________________\n" << endl;
+		cout << setw(8) << left << "" << "\n\t________________________________________________________________________________";
+		cout << "_______________________________________________________________________________________________________________\n" << endl;
 
 	}
 };
