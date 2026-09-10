@@ -147,9 +147,12 @@ public:
 
 	void UpdateRate(float NewRate)
 	{
-		_Rate = NewRate;
+		if (_Mode == enMode::UpdateMode)
+		{
+			_Rate = NewRate;
 
-		_Update();
+			_Update();
+		}
 	}
 
 	float Rate()
