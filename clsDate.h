@@ -4,7 +4,6 @@
 #include"clsString.h"
 #include<vector>
 #include"string"
-using namespace std;
 
 /*
  Note : 

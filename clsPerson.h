@@ -3,7 +3,6 @@
 #include<string>
 #include"InterfaceCommunication.h"
 
-using namespace std;
 
 class clsPerson :public InterfaceCommunication
 {

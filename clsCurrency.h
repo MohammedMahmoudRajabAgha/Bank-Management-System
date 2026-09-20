@@ -5,7 +5,6 @@
 #include<string>
 #include"clsString.h"
 
-using namespace std;
 
 class clsCurrency
 {
