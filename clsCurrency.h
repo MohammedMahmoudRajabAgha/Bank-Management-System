@@ -88,14 +88,13 @@ private:
 	{
 		vector<clsCurrency> _vCurrencys = _LoadCurrencysDataFromFile();
 
-		for (clsCurrency & Currency : _vCurrencys)
+		for (clsCurrency& Currency : _vCurrencys)
 		{
 			if (Currency.CurrencyCode() == CurrencyCode())
 			{
 				Currency = *this;
 
 				break;
-
 			}
 		}
 
