@@ -92,9 +92,8 @@ private:
 		{
 			if (Currency.CurrencyCode() == CurrencyCode())
 			{
-				Currency = *this;
+				Currency._Rate = this->Rate();
 
-				break;
 			}
 		}
 
