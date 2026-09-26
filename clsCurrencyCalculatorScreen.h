@@ -31,7 +31,7 @@ private:
 	static float _ReadAmount()
 	{
 		cout << "\nEnter Amount to Exchange: ";
-		double Amount = clsInputValidate::ReadDblNumberBetween(0, DBL_MAX);
+		double Amount = clsInputValidate::ReadNumberBetween<double>(0, DBL_MAX);
 
 		return Amount;
 	}
