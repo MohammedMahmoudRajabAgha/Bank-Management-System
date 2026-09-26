@@ -99,7 +99,7 @@ Israel#//#ILS#//#Israel Shekel#//#3.389000
 Italy#//#EUR#//#Euro#//#0.980000
 Jamaica#//#JMD#//#Jamaican Dollar#//#153.470001
 Japan#//#JPY#//#Japanese Yen#//#134.869995
-Jordan#//#JOD#//#Jordanian Dinar#//#0.708000
+Jordan#//#JOD#//#Jordanian Dinar#//#0.704000
 Kazakhstan#//#KZT#//#Kazakhstan Tenge#//#468.950012
 Kenya#//#KES#//#Kenyan Shilling#//#122.739998
 Kiribati#//#AUD#//#Australian Dollar#//#1.451000
@@ -192,7 +192,7 @@ Sudan#//#SDG#//#Sudanese Pound#//#578.000000
 Suriname#//#SRD#//#Surinamese Dollar#//#31.688000
 Sweden#//#SEK#//#Swedish Krona#//#10.177000
 Switzerland#//#CHF#//#Swiss Franc#//#0.924000
-Syrian Arab Republic#//#SYP#//#Syrian Pound#//#13150.000000
+Syrian Arab Republic#//#SYP#//#Syrian Pound#//#13500.000000
 Tajikistan#//#TJS#//#Tajikistan Somoni#//#10.269000
 "Tanzania, United Rep. of"#//#TZS#//#Tanzania Shilling#//#2326.840088
 Thailand#//#THB#//#Thai Baht#//#34.560001
