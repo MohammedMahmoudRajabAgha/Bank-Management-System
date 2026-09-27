@@ -1,19 +1,13 @@
 #include <iostream>
-#include"clsLoginScreen.h"
-#include"Global.h"
+#include"clsBankSystemScreen.h"
 
 using namespace std;
 
 int main()
 {
-	/*clsMainScreen::ShowMainMenue();*/
-
 	while (true)
 	{
-		if (!clsLoginScreen::ShowLoginScreen())
-		{
-			break;
-		}
+		clsBankSystemScreen::ShowBankSystemScreen();
 	}
 
 
