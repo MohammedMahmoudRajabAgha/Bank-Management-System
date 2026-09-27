@@ -5,6 +5,7 @@
 #include"clsQuickWithdrawScreen.h"
 #include"clsNormalWithdrawScreen.h"
 #include"clsATMDepositScreen.h"
+#include"clsCheckBalanceScreen.h"
 
 using namespace std;
 
@@ -55,8 +56,10 @@ private:
 
 	static void _ShowCheckBalanceScreen()
 	{
-		//Stub...
-		cout << "\nCheck Balance Screen will be here...\n";
+		////Stub...
+		//cout << "\nCheck Balance Screen will be here...\n";
+
+		clsCheckBalanceScreen::ShowCheckBalanceScreen();
 	}
 
 	static void _Logout()

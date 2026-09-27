@@ -56,7 +56,7 @@ public:
 	{
 		system("cls");
 		_DrawATMScreenHeader("\t\tDeposit Screen\n");
-		
+		cout << setw(37) << left << "" << "==============================================\n";;
 		_PerformDepositOption();
 
 	}
