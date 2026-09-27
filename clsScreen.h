@@ -24,6 +24,33 @@ protected:
         cout << "\n\n";
     }
 
+    static void _DrawMainScreenHeader(string Title, string SubTitle = "")
+    {
+        cout << "\t\t\t\t\t________________________________________";
+        cout << "\n\n\t\t\t\t\t  " << Title;
+        if (SubTitle != "")
+        {
+            cout << "\n\t\t\t\t\t  " << SubTitle;
+        }
+        cout << "\n\t\t\t\t\t________________________________________\n";
+        cout << "\n\t\t\t\t\tDate: " << clsDate::DateToString(clsDate());
+        cout << "\n\n";
+    }
+
+    static void _DrawATMScreenHeader(string Title, string SubTitle = "")
+    {
+        cout << "\t\t\t\t\t________________________________________";
+        cout << "\n\n\t\t\t\t\t  " << Title;
+        if (SubTitle != "")
+        {
+            cout << "\n\t\t\t\t\t  " << SubTitle;
+        }
+        cout << "\n\t\t\t\t\t________________________________________\n";
+        cout << "\n\t\t\t\t\tClient: " << CurrentClient.FullName();
+        cout << "\n\t\t\t\t\tDate: " << clsDate::DateToString(clsDate());
+        cout << "\n\n";
+    }
+
     static bool CeckAccessRights(clsUser::enPermissions Permission)
     {
         if (!CurrentUser.CheckAccessPermission(Permission))
