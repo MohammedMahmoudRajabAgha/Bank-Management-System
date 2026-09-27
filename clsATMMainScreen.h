@@ -3,6 +3,7 @@
 #include"clsBankClient.h"
 #include"clsScreen.h"
 #include"clsQuickWithdrawScreen.h"
+#include"clsNormalWithdrawScreen.h"
 
 using namespace std;
 
@@ -37,8 +38,10 @@ private:
 
 	static void _ShowNormalWithdrawScreen()
 	{
-		//Stub
-		cout << "\nNormal Withdraw Screen will be here...\n";
+		////Stub
+		//cout << "\nNormal Withdraw Screen will be here...\n";
+	
+		clsNormalWithdrawScreen::ShowNormalWithdrawScreen();
 	}
 
 	static void _ShowDepositScreen()
