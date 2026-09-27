@@ -2,6 +2,7 @@
 #include<iostream>
 #include"clsBankClient.h"
 #include"clsScreen.h"
+#include"clsQuickWithdrawScreen.h"
 
 using namespace std;
 
@@ -19,16 +20,19 @@ private:
 	{
 		short Choice = 0;
 
-		cout << setw(37) << left << "" << "Choose What do you want to do ? [1 To 5] ? ";
-		cin >> Choice;
-
+		cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 5]? ";
+		Choice = clsInputValidate::ReadNumberBetween<short>(1, 5, "Enter Number between 1 to 5? ");
+		
 		return Choice;
+
 	}
 
 	static void _ShowQuickWithdrawScreen()
 	{
-		//Stub
-		cout << "\nQuick Withdraw Screen will be here...\n";
+		////Stub
+		//cout << "\nQuick Withdraw Screen will be here...\n";
+
+		clsQuickWithdrawScreen::ShowQuickWithdrawScreen();
 	}
 
 	static void _ShowNormalWithdrawScreen()
