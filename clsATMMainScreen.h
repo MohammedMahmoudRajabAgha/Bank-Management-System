@@ -133,11 +133,11 @@ public:
 		cout << setw(37) << left << "" << "==============================================\n";
 		cout << setw(37) << left << "" << "\t\t    ATM Main Menue\n";
 		cout << setw(37) << left << "" << "==============================================\n";
-		cout << setw(37) << left << "" << "\t[1] Quick Withdraw.\n";
-		cout << setw(37) << left << "" << "\t[2] Normal Withdraw.\n";
-		cout << setw(37) << left << "" << "\t[3] Deposit.\n";
-		cout << setw(37) << left << "" << "\t[4] Check Balance.\n";
-		cout << setw(37) << left << "" << "\t[5] Logout.\n";
+		cout << setw(37) << left << "" << "\t\033[36m[1] Quick Withdraw.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[2] Normal Withdraw.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[3] Deposit.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[4] Check Balance.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[31m[5] Logout.\033[0m\n";
 		cout << setw(37) << left << "" << "==============================================\n";
 
 		_PerformATMMainMenueOption((enATMMainMenueOptions)_ReadATMMainMenueOption());

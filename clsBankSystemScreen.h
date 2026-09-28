@@ -19,8 +19,8 @@ private:
 	{
 		short Choice;
 		cout << setw(37) << left << ""
-			<< "Choose what do you want to do ? [1 To 2] ? ";
-		Choice = clsInputValidate::ReadNumberBetween<short>(1, 2, "Enter Number between 1 to 2? ");
+			<< "\033[33mChoose what do you want to do ? [1 To 2] ? \033[0m";
+		Choice = clsInputValidate::ReadNumberBetween<short>(1, 2, "\033[31mEnter Number between 1 to 2? \033[0m");
 
 		return Choice;
 	}
@@ -73,11 +73,11 @@ public:
 	{
 		system("cls");
 
-		_DrawMainScreenHeader("\tBank System Screen");
+		_DrawMainScreenHeader("\t\033[34mBank System Screen\033[0m");
 
 		cout << setw(37) << left << "" << "============================================\n";
-		cout << setw(37) << left << "" << "\t[1] Bank System.\n";
-		cout << setw(37) << left << "" << "\t[2] ATM.\n";
+		cout << setw(37) << left << "" << "\t\033[36m[1] Bank System.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[2] ATM.\033[0m\n";
 		cout << setw(37) << left << "" << "============================================\n";
 
 		_PerformBankSystemOptions(enBankSystemOptions(_ReadBankSystemOption()));

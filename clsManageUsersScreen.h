@@ -127,14 +127,14 @@ public:
 		_DrawScreenHeader("\t   Manage Users Screnn");
 
 		cout << setw(37) << left << "" << "============================================\n";
-		cout << setw(37) << left << "" << "\t\t   Manage Users Menue\n";
+		cout << setw(37) << left << "" << "\t\t\033[35m   Manage Users Menue\033[0m\n";
 		cout << setw(37) << left << "" << "============================================\n";
-		cout << setw(37) << left << "" << "\t[1] List Users.\n";
-		cout << setw(37) << left << "" << "\t[2] Add New User.\n";
-		cout << setw(37) << left << "" << "\t[3] Delete User.\n";
-		cout << setw(37) << left << "" << "\t[4] Update User.\n";
-		cout << setw(37) << left << "" << "\t[5] Find User.\n";
-		cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+		cout << setw(37) << left << "" << "\t\033[36m[1] List Users.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[2] Add New User.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[3] Delete User.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[4] Update User.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[36m[5] Find User.\033[0m\n";
+		cout << setw(37) << left << "" << "\t\033[31m[6] Main Menue.\033[0m\n";
 		cout << setw(37) << left << "" << "============================================\n";
 
 		_PerformManageUsersMenueOption((enManageUsersMenueOptios)_ReadManageUsersMenueOption());

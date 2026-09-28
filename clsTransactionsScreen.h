@@ -141,14 +141,14 @@ public:
         _DrawScreenHeader("\t  Transactions Screen");
 
         cout << setw(37) << left << "" << "============================================\n";
-        cout << setw(37) << left << "" << "\t\t  Transactions Menue\n";
+        cout << setw(37) << left << "" << "\t\t\033[35m  Transactions Menue\033[0m\n";
         cout << setw(37) << left << "" << "============================================\n";
-        cout << setw(37) << left << "" << "\t[1] Deposit.\n";
-        cout << setw(37) << left << "" << "\t[2] Withdraw.\n";
-        cout << setw(37) << left << "" << "\t[3] Total Balances.\n";
-        cout << setw(37) << left << "" << "\t[4] Transfer.\n";
-        cout << setw(37) << left << "" << "\t[5] Transfer Log.\n";
-        cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+        cout << setw(37) << left << "" << "\t\033[36m[1] Deposit.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[2] Withdraw.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[3] Total Balances.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[4] Transfer.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[5] Transfer Log.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[31m[6] Main Menue.\033[0m\n";
         cout << setw(37) << left << "" << "============================================\n";
 
         _PerformTransactionsMenueOption((enTransactionsMenueOptions)ReadTransactionsMenueOption());

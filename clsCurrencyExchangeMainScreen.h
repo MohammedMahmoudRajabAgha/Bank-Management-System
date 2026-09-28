@@ -119,13 +119,13 @@ public:
         _DrawScreenHeader("\tCurrency Exchange Main Screen");
 
         cout << setw(37) << left << "" << "============================================\n";
-        cout << setw(37) << left << "" << "\t\t  Currency Exchange Menue\n";
+        cout << setw(37) << left << "" << "\t\t\033[35m  Currency Exchange Menue\033[0m\n";
         cout << setw(37) << left << "" << "============================================\n";
-        cout << setw(37) << left << "" << "\t[1] List Currencies.\n";
-        cout << setw(37) << left << "" << "\t[2] Find Currency.\n";
-        cout << setw(37) << left << "" << "\t[3] Update Rate.\n";
-        cout << setw(37) << left << "" << "\t[4] Currency Calculator.\n";
-        cout << setw(37) << left << "" << "\t[5] Main Menue.\n";
+        cout << setw(37) << left << "" << "\t\033[36m[1] List Currencies.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[2] Find Currency.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[3] Update Rate.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[36m[4] Currency Calculator.\033[0m\n";
+        cout << setw(37) << left << "" << "\t\033[31m[5] Main Menue.\033[0m\n";
         cout << setw(37) << left << "" << "============================================\n";
 
         _PerformCurrenciesMainMenueOptions(enCurrenciesMainMenueOptions(_ReadCurrencyMenueOption()));
